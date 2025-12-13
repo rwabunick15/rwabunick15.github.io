@@ -26,7 +26,7 @@
 
         <section class="contact-section scroll-fade">
 
-            <form id="contact-form" action="YOUR_FORMSPREE_ENDPOINT_HERE" method="POST">
+<form id="contact-form" action="https://formsubmit.co/nickrwabuneza@gmail.com"method="POST">
                 <div class="form-group">
                      <label for="name">Name:</label>
                       <input type="text" id="name" name="Name" required> 
@@ -39,9 +39,12 @@
                   <label for="message">Message:</label>
                       <textarea id="message" name="Message" rows="6" required></textarea>
                 </div>
+                <input type="hidden" name="_subject" value="New Message From My Website">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
     <button type="submit" class="cta-button pulsing-glow">Send Message</button>
 
-            </form>
+</form>
             
             <div class="contact-details">
                 <h3>Find Me Here:</h3>
@@ -54,4 +57,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
