@@ -1,0 +1,468 @@
+/*
+|--------------------------------------------------------------------------
+| Final Comprehensive styles.css
+|--------------------------------------------------------------------------
+| Includes all global styles, navigation, layout, and unique animations 
+| for the Home, Gallery, and Contact pages.
+|
+*/
+
+/* --- Global Variables & Setup --- */
+:root {
+    --primary-color: #5D3FD3; /* Deep Purple/Indigo (Main Accent) */
+    --secondary-color: #333333; /* Dark Text/Background (Header Background) */
+    --accent-color: #FFC300; /* Bright Gold/Yellow Accent (Highlights/Glow) */
+    --light-color: #eacfcf; /* Light Background */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--secondary-color);
+    background-color: var(--light-color);
+    overflow-x: hidden;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+/* --- Navigation & Header --- */
+header {
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    font-size: 1.5em;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--light-color);
+    padding: 10px 15px;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 4px;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--accent-color);
+    background-color: rgba(255, 195, 0, 0.1);
+}
+
+/* --- Buttons and Shared Main Content Styling --- */
+.page-main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Unique Animation 9: Button Pulsating Glow (Contact Button) */
+.cta-button.pulsing-glow {
+    position: relative;
+    animation: pulsate 2s infinite ease-in-out;
+    border: none;
+}
+
+@keyframes pulsate {
+    0% { box-shadow: 0 0 0 0 rgba(255, 195, 0, 0.7); }
+    50% { box-shadow: 0 0 0 10px rgba(255, 195, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 195, 0, 0.7); }
+}
+
+
+/* --- Home Page Specifics --- */
+.hero-section {
+    height: 100vh;
+    background: var(--secondary-color); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    color: var(--light-color);
+    z-index: 2;
+    padding: 20px;
+    animation: fadeInScale 1s ease-out;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5em;
+    margin-bottom: 10px;
+}
+
+.typewriter {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+}
+
+/* Home Page Info Section */
+.info-section {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.detail-box {
+    background-color: white;
+    padding: 20px;
+    border-left: 5px solid var(--accent-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* Background Animation CSS (Placeholders for complex animation) */
+.background-animation li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    /* ... (CSS for the individual animated shapes) ... */
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+}
+/* Note: Full background animation requires detailed CSS for all list items */
+@keyframes animate {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
+    100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
+}
+
+
+/* --- Gallery Page Styling --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(211, 154, 63, 0.85); /* Primary color with transparency */
+    color: var(--light-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0; 
+    transition: opacity 0.6s ease;
+}
+
+/* Unique Animation 5: Image Hover Effect */
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* Image slightly zooms on hover */
+}
+
+/* --- Image Modal Styling (Unique Animation 7: Filter Reveal) --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 200; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); 
+    overflow: auto; 
+    
+    /* Used for centering modal content */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    margin: 0; 
+    width: 90%;
+    max-width: 1000px; 
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    position: relative;
+    
+    /* Animation applied when modal is active */
+    animation: filterReveal 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
+}
+
+@keyframes filterReveal {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.8) translateY(100px); 
+        filter: blur(10px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+        filter: blur(0); 
+    }
+}
+
+#modal-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.modal-desc {
+    color: var(--light-color);
+    font-size: 1.1em;
+    padding: 20px 0;
+    text-align: left;
+}
+
+.close-button {
+    color: var(--accent-color);
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--light-color);
+    text-decoration: none;
+}
+
+
+/* --- Contact Page Styling & Animations --- */
+.contact-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+#contact-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Unique Animation 8: Shifting Input Borders */
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 0 0 var(--primary-color); 
+    outline: none;
+    transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+}
+
+/* --- Find Me Here Section (Updated Background & Animation) --- */
+
+.contact-details {
+    padding: 20px;
+    /* ⭐ SAME AS HEADER BACKGROUND ⭐ */
+    background-color: var(--secondary-color); 
+    border: 1px dashed var(--primary-color);
+    border-radius: 8px;
+}
+
+.contact-details h3 {
+    color: var(--accent-color); /* Highlight heading with accent color */
+    margin-bottom: 15px;
+}
+
+/* Unique Animation 10: Sliding Accent Border on Contact Details */
+
+.contact-details p {
+    color: var(--light-color); /* Text visible on dark background */
+    position: relative; 
+    padding: 8px 0; 
+    margin-bottom: 10px;
+    font-weight: 400;
+    cursor: default; 
+    overflow: hidden; 
+    transition: color 0.3s ease;
+}
+
+.contact-details p::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; 
+    background-color: var(--accent-color); 
+    transform: translateX(-100%); 
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.contact-details p:hover {
+    color: var(--accent-color); 
+}
+
+.contact-details p:hover::after {
+    transform: translateX(0);
+}
+
+
+/* --- Scroll Fade-In Animation (JS Controlled) --- */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Media Queries (Responsiveness) --- */
+
+@media (max-width: 900px) {
+    .contact-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+    nav ul {
+        margin-top: 15px;
+    }
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+    }
+}
