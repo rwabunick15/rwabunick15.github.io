@@ -465,4 +465,30 @@ nav ul li a.active {
         width: 95%;
         margin: 20px auto;
     }
+
+}
+.instagram-contact {
+    margin-top: 8px;
+}
+
+.ig-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.ig-photo {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}   
+.ig-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #ccc;
 }
